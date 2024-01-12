@@ -1,0 +1,27 @@
+version: '3.9'
+volumes:
+  db_hexa_npm: null
+services:
+  mysql:
+    image: mysql:8.0.33
+    container_name: hexa_npm_mysql
+    ports:
+      - '3306:3306'
+    volumes:
+      - db_hexa_npm:/var/lib/mysql
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_ROOT_PASSWORD: HexaNpmMysqlRootPass2023
+      MYSQL_DATABASE: hexanpmmysql_db
+      MYSQL_USER: hexanpmmysql_user
+      MYSQL_PASSWORD: HexaNpmMysqlPass2023
+  phpmyadmin:
+    depends_on:
+      - mysql
+    image: phpmyadmin/phpmyadmin:5.2
+    container_name: hexa_npm_phpmyadmin
+    ports:
+      - '8180:80'
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: HexaNpmMysqlRootPass2023

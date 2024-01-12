@@ -1,0 +1,17 @@
+{
+  "name": "@monorepo/domain",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "scripts": {
+    "clean": "rimraf tsconfig.tsbuildinfo && rimraf dist && rimraf coverage",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {}
+}
